@@ -69,13 +69,22 @@ namespace TechNeuron_ATS.Site
         protected global::System.Web.UI.WebControls.DropDownList ddlJob;
 
         /// <summary>
-        /// TextBox6 control.
+        /// HFMinValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.HiddenField HFMinValue;
+
+        /// <summary>
+        /// HFMaxValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HFMaxValue;
 
         /// <summary>
         /// txtQualification control.
@@ -123,22 +132,22 @@ namespace TechNeuron_ATS.Site
         protected global::System.Web.UI.WebControls.TextBox txtRatingScore;
 
         /// <summary>
-        /// Button2 control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
-        /// ddlSkillSet control.
+        /// GVSkillSet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ddlSkillSet;
+        protected global::System.Web.UI.WebControls.GridView GVSkillSet;
 
         /// <summary>
         /// Button1 control.

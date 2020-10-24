@@ -10,7 +10,7 @@
                <div class="card-body">
                   <div class="row">
                      <div class="col">
-                        <%--<center>
+                         <%--<center>
                            <img width="100px" src="imgs/generaluser.png"/>
                         </center>--%>
                      </div>
@@ -68,7 +68,8 @@
                      <div class="col-md-6">
                         <label>City</label>
                         <div class="form-group">
-                           <asp:TextBox class="form-control" ID="TextBox6" runat="server" placeholder="City"></asp:TextBox>
+                            <asp:HiddenField ID="HFMinValue" runat="server" />
+                            <asp:HiddenField ID="HFMaxValue" runat="server" />
                         </div>
                      </div>
                     
@@ -108,14 +109,14 @@
                      <div class="col-md-4">
                         <label> <asp:TextBox class="form-control" ID="txtRatingScore" runat="server" placeholder="RatingScore" Enabled="false"></asp:TextBox></label>
                         <div class="form-group">
-                            <asp:Button class="btn btn-primary btn-block btn-sm" ID="Button2" runat="server" Text="AddRow" />
+                            <asp:Button class="btn btn-primary btn-block btn-sm" ID="btnAdd" runat="server" Text="AddRow" OnClick="btnAdd_Click" />
                         </div>
                      </div>
                   </div>
                    
                        <div class="row">
                      <div class="col">
-                        <asp:GridView class="table table-striped table-bordered" ID="ddlSkillSet" runat="server"></asp:GridView>
+                        <asp:GridView class="table table-striped table-bordered" ID="GVSkillSet" runat="server"></asp:GridView>
                      </div>
                   </div>
                    

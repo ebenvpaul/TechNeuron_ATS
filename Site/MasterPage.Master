@@ -10,6 +10,39 @@
       <script src="../Scripts/jquery-3.0.0.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
          <link href="../Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+         
+    <link href="../alertifyjs/css/alertify.css" rel="stylesheet" />
+    <link href="../alertifyjs/css/themes/default.min.css" rel="stylesheet" />
+    <script src="../alertifyjs/alertify.min.js"></script>
+     <script>
+    function callFeedbackMessage(inputType, inputText) {
+    var inputFeedback = inputType;
+
+    e.preventDefault();
+
+    if (inputType == 'Error') {
+        alertify.error(inputText);
+        return false;
+    }
+    else if (inputType == 'Success') {
+        alertify.success(inputText);
+        return false;
+    }
+    else {
+        alertify.log(inputText, "", 10000);
+        return false;
+    }
+    }
+
+
+  
+    function alertifyError(ERROR) {
+         alertify.error(ERROR); }
+           
+    function alertifySuccess(ERROR) {
+        alertify.success(ERROR);
+    }
+     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
      </asp:ContentPlaceHolder>
     
