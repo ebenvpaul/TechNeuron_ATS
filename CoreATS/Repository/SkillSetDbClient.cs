@@ -12,96 +12,67 @@ namespace CoreATS.Repository
 {
     public class SkillSetDbClient
     {
-        public List<SkillSet> GetAllCandidates(string connString)
+        public List<SkillSet> GetAllSkillSet(string connString)
         {
             return SqlHelper.ExtecuteProcedureReturnData<List<SkillSet>>(connString,
-                "sp_GetAllCandidate", r => r.TranslateAsSkillSetList());
+                "sp_GetAllSkillSet", r => r.TranslateAsSkillSetList());
         }
 
        
-        public CandidatesModel GetCandidatesById(int CandidateId, string connString)
+        public SkillSet GetSkillSetById(int SkillId, string connString)
         
         {
             SqlParameter[] param = {
-                       new SqlParameter("@CandidateId",CandidateId)
+                       new SqlParameter("@SkillId",SkillId)
                         };
 
-            return SqlHelper.ExtecuteProcedureReturnData<CandidatesModel>(connString,
-                 "sp_GetCandidate_Id", r => r.TranslateAsCandidate(), param);
+            return SqlHelper.ExtecuteProcedureReturnData<SkillSet>(connString,
+                 "sp_GetSkillSet_Id", r => r.TranslateAsSkillSet(), param);
 
                    
         }
 
-        
-
-
-
-        public string SaveCandidateMaster(CandidatesModel model, string connString)
+        public string SaveSkillSet(SkillSet model, string connString)
         {
-            var outParam = new SqlParameter("@CandidateId", SqlDbType.Int, 20)
+            var outParam = new SqlParameter("@SkillId", SqlDbType.Int, 20)
             {
                 Direction = ParameterDirection.Output
             };
             SqlParameter[] param = {
-               new SqlParameter("@Name",model.Name),
-               new SqlParameter("@Age",model.Age),
-               new SqlParameter("@DOB",model.DOB),
-               new SqlParameter("@Qualification",model.Qualification),
-               new SqlParameter("@AppliedJobId",model.AppliedJobId),
+               new SqlParameter("@JobId",model.JobId),
+               new SqlParameter("@SkillTitle",model.SkillTitle),
+               new SqlParameter("@SkillDesc",model.SkillDesc),
                new SqlParameter("@IsActive",model.IsActive),
-               new SqlParameter("@StatusId",model.StatusId),
-               new SqlParameter("@MobileNo",model.MobileNo),
-               new SqlParameter("@EmailId",model.EmailId),
-               outParam
-            };
-            SqlHelper.ExecuteProcedureReturnString(connString, "sp_CandidateMaster_Insert", param);
-            return outParam.Value.ToString();
-        }
-
-
-
-        public string SaveCandidateDetail(CandidatesModel model, string connString)
-        {
-            var outParam = new SqlParameter("@CandidateDetailGuid", SqlDbType.NVarChar, 50)
-            {
-                Direction = ParameterDirection.Output
-            };
-
-            SqlParameter[] param = {
-               new SqlParameter("@CandidateGuid",model.CandidateGuid),
-               new SqlParameter("@CandidateId",model.CandidateId),
-               new SqlParameter("@SkillId",model.SkillId),
+               new SqlParameter("@IsMandatory",model.IsMandatory),
                new SqlParameter("@RankingId",model.RankingId),
-               new SqlParameter("@RankingScore",model.RankingScore),
-               new SqlParameter("@CVFileLocation",model.CVFileLocation),
-               new SqlParameter("@IsActive",model.IsActive),
                outParam
             };
-            SqlHelper.ExecuteProcedureReturnString(connString, "sp_CandidateDetail_Insert", param);
+            SqlHelper.ExecuteProcedureReturnString(connString, "sp_SkillSet_Insert", param);
             return outParam.Value.ToString();
         }
 
 
-        public string UpdateCandidatesMaster(CandidatesModel model, string connString)
+
+       
+
+
+        public string UpdateSkillSet(SkillSet model, string connString)
         {
             var outParam = new SqlParameter("@ReturnCode", SqlDbType.NVarChar, 20)
             {
                 Direction = ParameterDirection.Output
             };
             SqlParameter[] param = {
-               new SqlParameter("@CandidateId",model.CandidateId),
-               new SqlParameter("@Name",model.Name),
-               new SqlParameter("@Age",model.Age),
-               new SqlParameter("@DOB",model.DOB),
-               new SqlParameter("@Qualification",model.Qualification),
-               new SqlParameter("@AppliedJobId",model.AppliedJobId),
+               new SqlParameter("@SkillId",model.SkillId),
+               new SqlParameter("@JobId",model.JobId),
+               new SqlParameter("@SkillTitle",model.SkillTitle),
+               new SqlParameter("@SkillDesc",model.SkillDesc),
                new SqlParameter("@IsActive",model.IsActive),
-               new SqlParameter("@StatusId",model.StatusId),
-               new SqlParameter("@MobileNo",model.MobileNo),
-               new SqlParameter("@EmailId",model.EmailId),
+               new SqlParameter("@IsMandatory",model.IsMandatory),
+               new SqlParameter("@RankingId",model.RankingId),
                 outParam
             };
-            SqlHelper.ExecuteProcedureReturnString(connString, "sp_CandidateMaster_Update", param);
+            SqlHelper.ExecuteProcedureReturnString(connString, "sp_SkillSet_Update", param);
             return (string)outParam.Value;
         }
 

@@ -23,19 +23,19 @@ namespace CoreATS.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllCandidates")]
-        public IActionResult GetAllCandidates()
+        [Route("GetAllRank")]
+        public IActionResult GetAllRank()
         {
-            var data = DbClientFactory<UserDbClient>.Instance.GetAllCandidates(appSettings.Value.DbConn);
+            var data = DbClientFactory<RankDbClient>.Instance.GetAllRanks(appSettings.Value.DbConn);
             return Ok(data);
         }
 
 
         [HttpGet]
-        [Route("GetCandidatesById/{CandidateId?}")]
-        public IActionResult GetUserId(int CandidateId)
+        [Route("GetRankById/{RankingId?}")]
+        public IActionResult GetRankById(int RankingId)
         {
-            var data = DbClientFactory<UserDbClient>.Instance.GetCandidatesById(CandidateId, appSettings.Value.DbConn);
+            var data = DbClientFactory<RankDbClient>.Instance.GetRankById(RankingId, appSettings.Value.DbConn);
             return Ok(data);
         }
 
@@ -43,21 +43,21 @@ namespace CoreATS.Controllers
 
 
         [HttpPost]
-        [Route("SaveCandidateMaster")]
-        public IActionResult SaveCandidateMaster([FromBody] CandidatesModel model)
+        [Route("SaveRank")]
+        public IActionResult SaveRank([FromBody] Rank model)
         {
-            var msg = new Message<CandidatesModel>();
-            var data = DbClientFactory<UserDbClient>.Instance.SaveCandidateMaster(model, appSettings.Value.DbConn);
+            var msg = new Message<Rank>();
+            var data = DbClientFactory<RankDbClient>.Instance.SaveRank(model, appSettings.Value.DbConn);
             if (data == null || data == String.Empty)
             {
                 msg.IsSuccess = false;
-                msg.ReturnMessage = "User Saving Failed";
+                msg.ReturnMessage = "Rank Saving Failed";
 
             }
             else
             {
                 msg.IsSuccess = true;
-                msg.ReturnMessage = "User saved successfully";
+                msg.ReturnMessage = "Rank saved successfully";
             }
             return Ok(data);
         }
@@ -69,15 +69,15 @@ namespace CoreATS.Controllers
 
 
         [HttpPut]
-        [Route("UpdateCandidateMaster")]
-        public IActionResult UpdateCandidateMaster([FromBody] CandidatesModel model)
+        [Route("UpdateRank")]
+        public IActionResult UpdateRank([FromBody] Rank model)
         {
-            var msg = new Message<CandidatesModel>();
-            var data = DbClientFactory<UserDbClient>.Instance.UpdateCandidatesMaster(model, appSettings.Value.DbConn);
+            var msg = new Message<Rank>();
+            var data = DbClientFactory<RankDbClient>.Instance.UpdateRank(model, appSettings.Value.DbConn);
             if (data == "C200")
             {
                 msg.IsSuccess = true;
-                if (model.CandidateId == 0)
+                if (model.RankingId == 0)
                     msg.ReturnMessage = "Candidate saved successfully";
                 else
                     msg.ReturnMessage = "Candidate updated successfully";
@@ -98,26 +98,6 @@ namespace CoreATS.Controllers
 
 
 
-
-        [HttpPost]
-        [Route("SaveCandidateDetails")]
-        public IActionResult SaveCandidateDetails([FromBody] CandidatesModel model)
-        {
-            var msg = new Message<CandidatesModel>();
-            var data = DbClientFactory<UserDbClient>.Instance.SaveCandidateDetail(model, appSettings.Value.DbConn);
-            if (data == null || data == String.Empty)
-            {
-                msg.IsSuccess = false;
-                msg.ReturnMessage = "User Saving Failed";
-
-            }
-            else
-            {
-                msg.IsSuccess = true;
-                msg.ReturnMessage = "User saved successfully";
-            }
-            return Ok(data);
-        }
-                       
+      
     }
 }

@@ -19,15 +19,15 @@ namespace CoreATS.Repository
         }
 
        
-        public CandidatesModel GetJobById(int JobId, string connString)
+        public JobMaster GetJobById(int JobId, string connString)
         
         {
             SqlParameter[] param = {
                        new SqlParameter("@JobId",JobId)
                         };
 
-            return SqlHelper.ExtecuteProcedureReturnData<CandidatesModel>(connString,
-                 "sp_GetJob_Id", r => r.TranslateAsCandidate(), param);
+            return SqlHelper.ExtecuteProcedureReturnData<JobMaster>(connString,
+                 "sp_GetJob_Id", r => r.TranslateAsJobMaster(), param);
 
                    
         }

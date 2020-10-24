@@ -10,7 +10,7 @@ namespace CoreATS.Translators
 {
     public static class RanksTranslator
     {
-        public static Rank TranslateAsRanksTranslator(this SqlDataReader reader, bool isList = false)
+        public static Rank TranslateAsRanks(this SqlDataReader reader, bool isList = false)
         {
             if (!isList)
             {
@@ -52,7 +52,7 @@ namespace CoreATS.Translators
             var list = new List<Rank>();
             while (reader.Read())
             {
-                list.Add(TranslateAsRanksTranslator(reader, true));
+                list.Add(TranslateAsRanks(reader, true));
             }
             return list;
         }

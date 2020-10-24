@@ -23,19 +23,19 @@ namespace CoreATS.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllCandidates")]
+        [Route("GetAllSkillSet")]
         public IActionResult GetAllCandidates()
         {
-            var data = DbClientFactory<UserDbClient>.Instance.GetAllCandidates(appSettings.Value.DbConn);
+            var data = DbClientFactory<SkillSetDbClient>.Instance.GetAllSkillSet(appSettings.Value.DbConn);
             return Ok(data);
         }
 
 
         [HttpGet]
-        [Route("GetCandidatesById/{CandidateId?}")]
-        public IActionResult GetUserId(int CandidateId)
+        [Route("GetSkillSetById/{SkillId?}")]
+        public IActionResult GetUserId(int SkillId)
         {
-            var data = DbClientFactory<UserDbClient>.Instance.GetCandidatesById(CandidateId, appSettings.Value.DbConn);
+            var data = DbClientFactory<SkillSetDbClient>.Instance.GetSkillSetById(SkillId, appSettings.Value.DbConn);
             return Ok(data);
         }
 
@@ -43,21 +43,21 @@ namespace CoreATS.Controllers
 
 
         [HttpPost]
-        [Route("SaveCandidateMaster")]
-        public IActionResult SaveCandidateMaster([FromBody] CandidatesModel model)
+        [Route("SaveSkillSet")]
+        public IActionResult SaveSkillSet([FromBody] SkillSet model)
         {
-            var msg = new Message<CandidatesModel>();
-            var data = DbClientFactory<UserDbClient>.Instance.SaveCandidateMaster(model, appSettings.Value.DbConn);
+            var msg = new Message<SkillSet>();
+            var data = DbClientFactory<SkillSetDbClient>.Instance.SaveSkillSet(model, appSettings.Value.DbConn);
             if (data == null || data == String.Empty)
             {
                 msg.IsSuccess = false;
-                msg.ReturnMessage = "User Saving Failed";
+                msg.ReturnMessage = "SkillSet Saving Failed";
 
             }
             else
             {
                 msg.IsSuccess = true;
-                msg.ReturnMessage = "User saved successfully";
+                msg.ReturnMessage = "SkillSet saved successfully";
             }
             return Ok(data);
         }
@@ -69,18 +69,18 @@ namespace CoreATS.Controllers
 
 
         [HttpPut]
-        [Route("UpdateCandidateMaster")]
-        public IActionResult UpdateCandidateMaster([FromBody] CandidatesModel model)
+        [Route("UpdateSkillSet")]
+        public IActionResult UpdateSkillSet([FromBody] SkillSet model)
         {
-            var msg = new Message<CandidatesModel>();
-            var data = DbClientFactory<UserDbClient>.Instance.UpdateCandidatesMaster(model, appSettings.Value.DbConn);
+            var msg = new Message<SkillSet>();
+            var data = DbClientFactory<SkillSetDbClient>.Instance.UpdateSkillSet(model, appSettings.Value.DbConn);
             if (data == "C200")
             {
                 msg.IsSuccess = true;
-                if (model.CandidateId == 0)
-                    msg.ReturnMessage = "Candidate saved successfully";
+                if (model.SkillId == 0)
+                    msg.ReturnMessage = "SkillSet saved successfully";
                 else
-                    msg.ReturnMessage = "Candidate updated successfully";
+                    msg.ReturnMessage = "SkillSet updated successfully";
             }
             //else if (data == "C201")
             //{

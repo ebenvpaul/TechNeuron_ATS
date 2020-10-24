@@ -34,3 +34,5 @@ C:\PROJECTS\TechNeuron_ATS\obj\Debug\TechNeuron_ATS.csproj.CoreCompileInputs.cac
 C:\PROJECTS\TechNeuron_ATS\obj\Debug\TechNeuron_ATS.csproj.CopyComplete
 C:\PROJECTS\TechNeuron_ATS\obj\Debug\TechNeuron_ATS.dll
 C:\PROJECTS\TechNeuron_ATS\obj\Debug\TechNeuron_ATS.pdb
+C:\PROJECTS\TechNeuron_ATS\bin\Newtonsoft.Json.dll
+C:\PROJECTS\TechNeuron_ATS\bin\Newtonsoft.Json.xml

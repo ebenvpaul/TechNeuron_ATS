@@ -23,19 +23,19 @@ namespace CoreATS.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllCandidates")]
-        public IActionResult GetAllCandidates()
+        [Route("GetAllJobs")]
+        public IActionResult GetAllJobs()
         {
-            var data = DbClientFactory<UserDbClient>.Instance.GetAllCandidates(appSettings.Value.DbConn);
+            var data = DbClientFactory<JobMasterDbClient>.Instance.GetAllJobs(appSettings.Value.DbConn);
             return Ok(data);
         }
 
 
         [HttpGet]
-        [Route("GetCandidatesById/{CandidateId?}")]
-        public IActionResult GetUserId(int CandidateId)
+        [Route("GetJobById/{JobId?}")]
+        public IActionResult GetJobById(int JobId)
         {
-            var data = DbClientFactory<UserDbClient>.Instance.GetCandidatesById(CandidateId, appSettings.Value.DbConn);
+            var data = DbClientFactory<JobMasterDbClient>.Instance.GetJobById(JobId, appSettings.Value.DbConn);
             return Ok(data);
         }
 
@@ -43,21 +43,21 @@ namespace CoreATS.Controllers
 
 
         [HttpPost]
-        [Route("SaveCandidateMaster")]
-        public IActionResult SaveCandidateMaster([FromBody] CandidatesModel model)
+        [Route("SaveJob")]
+        public IActionResult SaveJob([FromBody] JobMaster model)
         {
-            var msg = new Message<CandidatesModel>();
-            var data = DbClientFactory<UserDbClient>.Instance.SaveCandidateMaster(model, appSettings.Value.DbConn);
+            var msg = new Message<JobMaster>();
+            var data = DbClientFactory<JobMasterDbClient>.Instance.SaveJob(model, appSettings.Value.DbConn);
             if (data == null || data == String.Empty)
             {
                 msg.IsSuccess = false;
-                msg.ReturnMessage = "User Saving Failed";
+                msg.ReturnMessage = "Job Saving Failed";
 
             }
             else
             {
                 msg.IsSuccess = true;
-                msg.ReturnMessage = "User saved successfully";
+                msg.ReturnMessage = "Job saved successfully";
             }
             return Ok(data);
         }
@@ -69,18 +69,18 @@ namespace CoreATS.Controllers
 
 
         [HttpPut]
-        [Route("UpdateCandidateMaster")]
-        public IActionResult UpdateCandidateMaster([FromBody] CandidatesModel model)
+        [Route("UpdateJob")]
+        public IActionResult UpdateJob([FromBody] JobMaster model)
         {
-            var msg = new Message<CandidatesModel>();
-            var data = DbClientFactory<UserDbClient>.Instance.UpdateCandidatesMaster(model, appSettings.Value.DbConn);
+            var msg = new Message<JobMaster>();
+            var data = DbClientFactory<JobMasterDbClient>.Instance.UpdateJob(model, appSettings.Value.DbConn);
             if (data == "C200")
             {
                 msg.IsSuccess = true;
-                if (model.CandidateId == 0)
-                    msg.ReturnMessage = "Candidate saved successfully";
+                if (model.JobId == 0)
+                    msg.ReturnMessage = "Job saved successfully";
                 else
-                    msg.ReturnMessage = "Candidate updated successfully";
+                    msg.ReturnMessage = "Job updated successfully";
             }
             //else if (data == "C201")
             //{
@@ -95,29 +95,6 @@ namespace CoreATS.Controllers
             return Ok(msg);
         }
 
-
-
-
-
-        [HttpPost]
-        [Route("SaveCandidateDetails")]
-        public IActionResult SaveCandidateDetails([FromBody] CandidatesModel model)
-        {
-            var msg = new Message<CandidatesModel>();
-            var data = DbClientFactory<UserDbClient>.Instance.SaveCandidateDetail(model, appSettings.Value.DbConn);
-            if (data == null || data == String.Empty)
-            {
-                msg.IsSuccess = false;
-                msg.ReturnMessage = "User Saving Failed";
-
-            }
-            else
-            {
-                msg.IsSuccess = true;
-                msg.ReturnMessage = "User saved successfully";
-            }
-            return Ok(data);
-        }
-                       
+         
     }
 }

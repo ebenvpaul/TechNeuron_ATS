@@ -1,0 +1,4 @@
+C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp2.2\CoreATS.csprojAssemblyReference.cache
+C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp2.2\CoreATS.AssemblyInfoInputs.cache
+C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp2.2\CoreATS.AssemblyInfo.cs
+C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp2.2\CoreATS.csproj.CoreCompileInputs.cache
