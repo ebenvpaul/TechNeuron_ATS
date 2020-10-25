@@ -39,7 +39,7 @@
                      <div class="col-md-6">
                         <label>Date of Birth</label>
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="txtDOB" runat="server" placeholder="Password" TextMode="Date"></asp:TextBox>
+                           <asp:TextBox CssClass="form-control" ID="txtDOB" runat="server" placeholder="Password" TextMode="Date" AutoPostBack="True" OnTextChanged="txtDOB_TextChanged"></asp:TextBox>
                         </div>
                      </div>
                   </div>
@@ -103,7 +103,7 @@
                      <div class="col-md-4">
                         <label>Rating</label>
                         <div class="form-group">
-                           <asp:TextBox class="form-control" ID="txtRating" runat="server" placeholder="Rate"></asp:TextBox>
+                           <asp:TextBox class="form-control" ID="txtRating" runat="server" placeholder="Rate" TextMode="Number"></asp:TextBox>
                         </div>
                      </div>
                      <div class="col-md-4">
@@ -125,7 +125,7 @@
                      <div class="col-8 mx-auto">
                         <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Save" />
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
                            </div>
                         </center>
                      </div>

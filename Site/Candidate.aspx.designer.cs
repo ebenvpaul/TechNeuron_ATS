@@ -150,13 +150,13 @@ namespace TechNeuron_ATS.Site
         protected global::System.Web.UI.WebControls.GridView GVSkillSet;
 
         /// <summary>
-        /// Button1 control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
         /// Label2 control.

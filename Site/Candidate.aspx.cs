@@ -13,7 +13,7 @@ using TechNeuron_ATS.App_Code;
 using TechNeuron_ATS.Model;
 namespace TechNeuron_ATS.Site
 {
-    public  partial class Candidate : System.Web.UI.Page
+    public partial class Candidate : System.Web.UI.Page
     {
         
 
@@ -22,13 +22,15 @@ namespace TechNeuron_ATS.Site
 
             if (!IsPostBack)
             {
-                InitPage();      
-             }
-            
+                InitPage();
+            }
+
         }
-        protected void InitPage() {
+        protected void InitPage()
+        {
 
             InitCmb();
+            txtDOB.Text = DateTime.Now.Year.ToString();
         }
 
 
@@ -37,7 +39,7 @@ namespace TechNeuron_ATS.Site
         {
             InitddlJob();
             InitddlSkill();
-         
+
         }
 
         protected void InitddlJob()
@@ -83,7 +85,7 @@ namespace TechNeuron_ATS.Site
                 }
                 ddlSkills.DataBind();
                 GetRanking();
-                ddlSkills_SelectedIndexChanged(null,null);
+                ddlSkills_SelectedIndexChanged(null, null);
             }
             catch (Exception ex)
             {
@@ -119,7 +121,7 @@ namespace TechNeuron_ATS.Site
 
         }
 
-       
+
 
         protected void ddlSkills_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -128,7 +130,7 @@ namespace TechNeuron_ATS.Site
         }
         protected void GetRankDetails()
         {
-            
+
             int SelectedSkillId = 0;
             var SelectedSkill = String.Empty;
 
@@ -174,12 +176,12 @@ namespace TechNeuron_ATS.Site
             try
             {
                 int Rateing = Int32.Parse(txtRating.Text);
-                int MinRank= Int32.Parse(HFMinValue.Value);
+                int MinRank = Int32.Parse(HFMinValue.Value);
                 int MaxRank = Int32.Parse(HFMaxValue.Value);
-                if  (MinRank > Rateing || Rateing > MaxRank)
+                if (MinRank > Rateing || Rateing > MaxRank)
                 {
-                    
-                    ERR_MSG(Rateing + " Rating Score Invalid", true );
+
+                    ERR_MSG(Rateing + " Rating Score Invalid", true);
                     return;
                 }
 
@@ -195,16 +197,16 @@ namespace TechNeuron_ATS.Site
 
 
                 DataTable dt = new DataTable();
-                
 
-                
-                    dt.Columns.Add("Skill");
-                    dt.Columns.Add("SkillId");
-                    dt.Columns.Add("Rating");
-                
-                    if (Session["GVSkillSet"] != null)
+
+
+                dt.Columns.Add("Skill");
+                dt.Columns.Add("SkillId");
+                dt.Columns.Add("Rating");
+
+                if (Session["GVSkillSet"] != null)
                 {
-                    
+
                     dt = (DataTable)Session["GVSkillSet"];
                 }
 
@@ -213,7 +215,7 @@ namespace TechNeuron_ATS.Site
                 dr["SkillId"] = SelectedSkillId;
                 dr["Rating"] = Rating;
 
-               
+
                 dt.Rows.Add(dr);
                 GVSkillSet.DataSource = dt;
                 GVSkillSet.DataBind();
@@ -234,16 +236,16 @@ namespace TechNeuron_ATS.Site
         {
             try
             {
-               
+
                 if (!isError)
                 {
-                    
+
                     AlertifySuccess(strErr);
                 }
                 else
                     AlertifyError(strErr);
 
-              
+
             }
             catch (Exception ex)
             {
@@ -271,5 +273,152 @@ namespace TechNeuron_ATS.Site
         }
 
 
+
+
+
+        private bool validateForm()
+        {
+
+            try
+            {
+
+
+                if (txtName.Text.Trim() == string.Empty)
+                {
+                    ERR_MSG("Please enter Name", true);
+                    return false; 
+                }
+
+              
+
+                if (txtMobileNo.Text.Trim() == string.Empty)
+                {
+                    ERR_MSG("Please enter Rating", true);
+                    return false; 
+                }
+
+
+                if (txtfilelocation.Text.Trim() == string.Empty)
+                {
+                    ERR_MSG("Please add CV Location", true);
+                    return false; 
+                }
+
+                if (txtDOB.Text.Trim() == string.Empty)
+                {
+                    ERR_MSG("Please enter DOB", true);
+                    return false;
+                }
+                //try
+                //{
+                //    txtDOB.Text = Convert.ToDateTime(txtDOB.Text).ToString("dd-MMM-yyyy");
+                //}
+                //catch (Exception ex)
+                //{
+                //    txtDOB.Text = "";
+                //    ERR_MSG("Please enter DOB", true);
+                //    return false;
+
+                //}
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ERR_MSG(ex.Message);
+                return false;
+            }
+            finally
+            {
+
+            }
+        }
+
+
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            if (validateForm() != true)
+            {
+                return;
+            }
+            Guid guid = Guid.NewGuid();
+            Random random = new Random();
+            int i = random.Next();
+            
+            
+            var reponse = "";
+            string DOB = txtDOB.Text;
+            DateTime dt = Convert.ToDateTime(DOB);
+
+            try
+            {
+                var candidate = new CandidatesModel
+                {
+                    CandidateGuid = "0",
+                    CandidateId = i,
+                    Name = txtName.Text,
+                    Age = CalculateAge(),
+                    DOB = dt,
+                    Qualification = txtQualification.Text,
+                    AppliedJobId = Int32.Parse(ddlSkills.SelectedValue),
+                    IsActive = true,
+                    StatusId = 1,
+                    MobileNo = txtMobileNo.Text,
+                    EmailId = txtEmailId.Text
+                };
+                DbController ObjMain = new DbController();
+                reponse = ObjMain.addCandidateMaster(candidate);
+                ERR_MSG("Candidate Saved",false);
+                initForm();
+            }
+            catch (Exception ex)
+            {
+                ERR_MSG(ex.Message);
+            }
+            
+
+        }
+
+        private void initForm()
+        {
+            txtName.Text = string.Empty;
+            txtMobileNo.Text = string.Empty;
+            txtEmailId.Text = string.Empty;
+            txtQualification.Text = string.Empty;
+        }
+
+        private int CalculateAge()
+        {
+            try
+            {
+                var today = DateTime.Today;
+
+
+                // Calculate the age.
+                string DOB = txtDOB.Text;
+                DateTime dt = Convert.ToDateTime(DOB);
+
+                //Know the year
+
+                int year = dt.Year;
+                var age = today.Year - year;
+
+                return age;
+
+
+            }
+            catch(Exception ex)
+            {
+                ERR_MSG(ex.Message);
+                return 0;
+            }
+        }
+
+        protected void txtDOB_TextChanged(object sender, EventArgs e)
+        {
+            int age = CalculateAge();
+        }
     }
+      
 }
