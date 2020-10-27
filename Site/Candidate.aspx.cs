@@ -23,14 +23,40 @@ namespace TechNeuron_ATS.Site
             if (!IsPostBack)
             {
                 InitPage();
+                LoadGVCANDIDATES();
             }
 
         }
+
+        private void LoadGVCANDIDATES()
+        {
+            var str_JobMaster = "";
+            try
+            {
+                DbController ObjMain = new DbController();
+                str_JobMaster = ObjMain.GetCandidate();
+                var myDeserializedClass2 = JsonConvert.DeserializeObject<List<CandidatesModel>>(str_JobMaster);
+
+                grdCandidate.DataSource = myDeserializedClass2;
+                grdCandidate.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+            }
+            finally
+            {
+
+            }
+
+        }
+
         protected void InitPage()
         {
 
             InitCmb();
-            txtDOB.Text = DateTime.Now.Year.ToString();
+           
         }
 
 

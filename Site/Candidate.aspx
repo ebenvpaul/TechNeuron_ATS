@@ -1,5 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/MasterPage.Master" AutoEventWireup="true" CodeBehind="Candidate.aspx.cs" Inherits="TechNeuron_ATS.Site.Candidate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript" language="javascript">
+$(document).ready(function() 
+{
+$('#<%=grdCandidate.ClientID %>').Scrollable();
+}
+)
+    </script>
+
+    <style>
+          .gvWidthHight {  
+                overflow: scroll;  
+                height: 250px;  
+                width: 400px;  
+            }  
+    </style>
+
+  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -66,7 +83,7 @@
                         </div>
                      </div>
                      <div class="col-md-6">
-                        <label>City</label>
+                        
                         <div class="form-group">
                             <asp:HiddenField ID="HFMinValue" runat="server" />
                             <asp:HiddenField ID="HFMaxValue" runat="server" />
@@ -145,8 +162,8 @@
                   <div class="row">
                      <div class="col">
                         <center>
-                           <h4>Your Issued Books</h4>
-                           <asp:Label class="badge badge-pill badge-info" ID="Label2" runat="server" Text="your books info"></asp:Label>
+                           <h4>Candidate Listing</h4>
+                           <asp:Label class="badge badge-pill badge-info" ID="Label2" runat="server" Text="All Registered Applicants"></asp:Label>
                         </center>
                      </div>
                   </div>
@@ -157,7 +174,18 @@
                   </div>
                   <div class="row">
                      <div class="col">
-                        <asp:GridView class="table table-striped table-bordered" ID="grdCandidate" runat="server"></asp:GridView>
+                        <asp:GridView class="table table-striped table-bordered gvWidthHight" ID="grdCandidate" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" CssClass="gvWidthHight">
+                            <AlternatingRowStyle BackColor="#F7F7F7" />
+                            <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                            <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+                            <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                            <SortedAscendingCellStyle BackColor="#F4F4FD" />
+                            <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+                            <SortedDescendingCellStyle BackColor="#D8D8F0" />
+                            <SortedDescendingHeaderStyle BackColor="#3E3277" />
+                         </asp:GridView>
                      </div>
                   </div>
                </div>

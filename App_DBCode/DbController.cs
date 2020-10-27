@@ -65,6 +65,30 @@ namespace TechNeuron_ATS.App_Code
 
 
 
+        public string GetCandidate()
+        {
+            try
+            {
+
+                var domainName = API_URL;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.
+                                        Create(String.Format("{0}/api/Candidate/GetAllCandidates",
+                                        domainName));
+                request.UserAgent = @"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36";
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                var jsonResponse = reader.ReadToEnd();
+                return jsonResponse;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                return ex.Message.ToString();
+            }
+        }
+
+
+
 
 
         public string GetRanks()
@@ -293,6 +317,94 @@ namespace TechNeuron_ATS.App_Code
                 return ex.Message.ToString();
             }
         }
+
+
+
+
+
+
+
+
+        public string addSkill(SkillSets skill)
+        {
+
+            try
+            {
+                var domainName = API_URL;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.
+                                        Create(String.Format("{0}/api/SkillSet/SaveSkillSet",
+                                        domainName));
+                request.UserAgent = @"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36";
+                request.ContentType = "application/json";
+                request.Method = "POST";
+
+
+
+                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    var json = JsonConvert.SerializeObject(skill);
+
+                    streamWriter.Write(json);
+                }
+
+                var httpResponse = (HttpWebResponse)request.GetResponse();
+                var streamReader = new StreamReader(httpResponse.GetResponseStream());
+                var result = streamReader.ReadToEnd();
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                return ex.Message.ToString();
+            }
+        }
+
+
+
+
+
+
+
+        public string UpdateSkill(SkillSets skill)
+        {
+
+            try
+            {
+                var domainName = API_URL;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.
+                                        Create(String.Format("{0}/api/SkillSet/UpdateSkillSet",
+                                        domainName));
+                request.UserAgent = @"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36";
+                request.ContentType = "application/json";
+                request.Method = "PUT";
+
+
+
+                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    var json = JsonConvert.SerializeObject(skill);
+
+                    streamWriter.Write(json);
+                }
+
+                var httpResponse = (HttpWebResponse)request.GetResponse();
+                var streamReader = new StreamReader(httpResponse.GetResponseStream());
+                var result = streamReader.ReadToEnd();
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                return ex.Message.ToString();
+            }
+        }
+
+
+
+
+
 
 
 
