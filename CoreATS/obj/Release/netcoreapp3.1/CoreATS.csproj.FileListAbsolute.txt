@@ -16,8 +16,6 @@ C:\PROJECTS\TechNeuron_ATS\CoreATS\bin\Release\netcoreapp3.1\runtimes\win\lib\ne
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Release\netcoreapp3.1\CoreATS.csprojAssemblyReference.cache
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Release\netcoreapp3.1\CoreATS.AssemblyInfoInputs.cache
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Release\netcoreapp3.1\CoreATS.AssemblyInfo.cs
-C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Release\netcoreapp3.1\CoreATS.csproj.CoreCompileInputs.cache
-C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Release\netcoreapp3.1\CoreATS.MvcApplicationPartsAssemblyInfo.cache
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Release\netcoreapp3.1\CoreATS.RazorTargetAssemblyInfo.cache
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Release\netcoreapp3.1\CoreATS.csproj.CopyComplete
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Release\netcoreapp3.1\staticwebassets\CoreATS.StaticWebAssets.Manifest.cache

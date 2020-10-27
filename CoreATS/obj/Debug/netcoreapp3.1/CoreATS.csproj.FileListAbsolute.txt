@@ -7,6 +7,7 @@ C:\PROJECTS\TechNeuron_ATS\CoreATS\bin\Debug\netcoreapp3.1\CoreATS.runtimeconfig
 C:\PROJECTS\TechNeuron_ATS\CoreATS\bin\Debug\netcoreapp3.1\CoreATS.runtimeconfig.dev.json
 C:\PROJECTS\TechNeuron_ATS\CoreATS\bin\Debug\netcoreapp3.1\CoreATS.dll
 C:\PROJECTS\TechNeuron_ATS\CoreATS\bin\Debug\netcoreapp3.1\CoreATS.pdb
+C:\PROJECTS\TechNeuron_ATS\CoreATS\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\PROJECTS\TechNeuron_ATS\CoreATS\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\PROJECTS\TechNeuron_ATS\CoreATS\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 C:\PROJECTS\TechNeuron_ATS\CoreATS\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
@@ -16,6 +17,8 @@ C:\PROJECTS\TechNeuron_ATS\CoreATS\bin\Debug\netcoreapp3.1\runtimes\win\lib\netc
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.csprojAssemblyReference.cache
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.AssemblyInfoInputs.cache
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.AssemblyInfo.cs
+C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.csproj.CoreCompileInputs.cache
+C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.MvcApplicationPartsAssemblyInfo.cache
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.RazorTargetAssemblyInfo.cache
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.csproj.CopyComplete
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\staticwebassets\CoreATS.StaticWebAssets.Manifest.cache
@@ -23,5 +26,3 @@ C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\staticwebassets\CoreA
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.dll
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.pdb
 C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.genruntimeconfig.cache
-C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.csproj.CoreCompileInputs.cache
-C:\PROJECTS\TechNeuron_ATS\CoreATS\obj\Debug\netcoreapp3.1\CoreATS.MvcApplicationPartsAssemblyInfo.cache

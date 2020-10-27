@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="TechNeuron_ATS.Site.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TechNeuron ATS</title>
+      <script src="../Scripts/jquery-3.0.0.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+         <link href="../Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+         
+    <link href="../alertifyjs/css/alertify.css" rel="stylesheet" />
+    <link href="../alertifyjs/css/themes/default.min.css" rel="stylesheet" />
+    <script src="../alertifyjs/alertify.min.js"></script>
+     <script>
+    function callFeedbackMessage(inputType, inputText) {
+    var inputFeedback = inputType;
+
+    e.preventDefault();
+
+    if (inputType == 'Error') {
+        alertify.error(inputText);
+        return false;
+    }
+    else if (inputType == 'Success') {
+        alertify.success(inputText);
+        return false;
+    }
+    else {
+        alertify.log(inputText, "", 10000);
+        return false;
+    }
+    }
+
+
+  
+    function alertifyError(ERROR) {
+         alertify.error(ERROR); }
+           
+    function alertifySuccess(ERROR) {
+        alertify.success(ERROR);
+    }
+     </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+     </asp:ContentPlaceHolder>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.aspx">TechNeuron ATS</a>
+  <!-- Navbar brand yo -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+  <div class="collapse navbar-collapse" id="navbarTop">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><a class="nav-link" href="Candidate.aspx">Candidate</a> </li>
+      <li class="nav-item"><a class="nav-link" href="Jobs.aspx">Jobs</a> </li>
+      <li class="nav-item"><a class="nav-link" href="SkillSet.aspx">Skills</a> </li>
+      <li class="nav-item"><a class="nav-link" href="Ranking.aspx">Ranking</a> </li>
+    </ul>
+  </div>
+</nav>
+            <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+               
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

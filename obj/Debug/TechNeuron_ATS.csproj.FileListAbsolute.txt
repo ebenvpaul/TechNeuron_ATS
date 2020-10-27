@@ -1,3 +1,4 @@
+C:\PROJECTS\TechNeuron_ATS\obj\Debug\TechNeuron_ATS.csproj.CoreCompileInputs.cache
 C:\PROJECTS\TechNeuron_ATS\bin\TechNeuron_ATS.dll.config
 C:\PROJECTS\TechNeuron_ATS\bin\TechNeuron_ATS.dll
 C:\PROJECTS\TechNeuron_ATS\bin\TechNeuron_ATS.pdb
@@ -27,12 +28,9 @@ C:\PROJECTS\TechNeuron_ATS\bin\roslyn\vbc.exe.config
 C:\PROJECTS\TechNeuron_ATS\bin\roslyn\vbc.rsp
 C:\PROJECTS\TechNeuron_ATS\bin\roslyn\VBCSCompiler.exe
 C:\PROJECTS\TechNeuron_ATS\bin\roslyn\VBCSCompiler.exe.config
-C:\PROJECTS\TechNeuron_ATS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\PROJECTS\TechNeuron_ATS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\PROJECTS\TechNeuron_ATS\bin\Newtonsoft.Json.dll
+C:\PROJECTS\TechNeuron_ATS\bin\Newtonsoft.Json.xml
 C:\PROJECTS\TechNeuron_ATS\obj\Debug\TechNeuron_ATS.csprojAssemblyReference.cache
-C:\PROJECTS\TechNeuron_ATS\obj\Debug\TechNeuron_ATS.csproj.CoreCompileInputs.cache
 C:\PROJECTS\TechNeuron_ATS\obj\Debug\TechNeuron_ATS.csproj.CopyComplete
 C:\PROJECTS\TechNeuron_ATS\obj\Debug\TechNeuron_ATS.dll
 C:\PROJECTS\TechNeuron_ATS\obj\Debug\TechNeuron_ATS.pdb
-C:\PROJECTS\TechNeuron_ATS\bin\Newtonsoft.Json.dll
-C:\PROJECTS\TechNeuron_ATS\bin\Newtonsoft.Json.xml
